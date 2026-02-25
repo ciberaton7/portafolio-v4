@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*acá tenemos un selector de TIPO (etiqueta)
+en este caso afectará a todo el cuerpo de la página*/
+body{
+    font-family: 'comic sans ms', cursive, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    color: #333;
+}
+/*Otro selector de TIPO aplicar estilo al encabezado*/
+header{
+    background-color: #2c2b2b;
+    color: fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#contenedor-proyectos 
+{
+    display: flex;
+    /*flex-wrap: wrap;
+    justify-content: center;*/
+}
+
+/*Selector descendiente*/
+nav ul
+{
+    list-style: none;
+}
+nav ul li
+{
+    display: inline-block;
+    margin: 0 20px;
+}
+/*Selector de los enlaces (a) dentro del nav*/
+nav ul li a
+{
+    text-decoration: none;
+    color: #f0f0f0;
+    font-weight: bold;
+}
+
+/*Selector de CLASE selecciona cualquier elemento que tenga la palabra class="proyecto-card"*/
+.proyecto-card
+{
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+
+    /*El background-color es el color de fondo del elemento, en este caso el card del proyecto
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
+}
