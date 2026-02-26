@@ -105,9 +105,11 @@ footer
 
     header nav ul li 
     {
+        display:grid;
         padding-left: 40vw;
         padding-right: 40vw;
-        border-bottom: 3px solid #fff;
+        text-align: center;
+        border-top: 3px solid #fff;
     }
 
     #contenedor-proyectos
