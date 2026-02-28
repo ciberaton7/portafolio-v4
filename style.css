@@ -8,45 +8,163 @@ en este caso afectará a todo el cuerpo de la página*/
 body{
     font-family: 'comic sans ms', cursive, sans-serif;
     line-height: 1.6;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #252525;
+    color: #dddddd;
 }
-/*Otro selector de TIPO aplicar estilo al encabezado*/
-header{
-    display: flex;
-    height: 15vh;
-    background-color: #2c2b2b;
-    color: fff;
-    padding: 20px;
-    /*text-align: center;*/
-    justify-content: center;
-    align-items:center;
+#bienvenida
+{
+    /*Le pongo un fondo de color parecido al tema oscuro de visual studio*/
+    background-color: #1e1e1e;
+    /*Le pongo margenes para que parezca una ventana abierta*/
+    margin: 0 2.23dvw 0 2.23dvw;
+    /*Le pongo un tamaño de letra grande para que se base en función al tamaño de la ventana*/
+    font-size: 5.83dvh;
+    /*hago que mi texto no este pegado a los bordes*/
+    padding: 5vw 8vw 5vw 8vw;
+    /*hago que mi bienvenida utilice una gran parte de la ventana*/
+    min-height: 92vh;
+
+    /*alineo mi texto al centro y le pongo bordes*/
+    text-align: center;
+    border: #333333 1px solid;
+}
+#texto-bienvenida
+{
+    /*dentro la ventana de presentación pongo el texto de bienvenida, acá le pongo el fondo de imagen con un oscurecimiento para que se vea mas elegante*/
+    background-color: #333333;
+    background-image: radial-gradient(circle, rgba(51, 51, 51, 0) 40%, rgba(51, 51, 51, 1) 80%), url(./img/fondo.gif);
+    background-blend-mode: overlay;
+    background-size:cover;
+    background-position: center;
+    font-family: colville, sans-serif;
+    
+    /*Acá le pongo un espacio para que se vea bien dentro del contenedor y además configuro el borde brillante de la ventana*/
+    padding: 2% 0.5% 3% 0.5%;
+    box-shadow: 4px 4px 8px rgba(176, 174, 174, 0.2),-4px -4px 8px rgba(176, 174, 174, 0.2);
+
+}
+#texto-bienvenida h1
+{
+    font-weight:500;
+}
+#texto-bienvenida h3
+{
+    font-size: 0.5em;
+    font-weight: bold;
+    font-style: italic;
+    margin: 20px 0 20px 0;
+}
+#texto-bienvenida p
+{
+    padding-left: 2dvw;
+    padding-right: 2dvw;
+    font-size: 0.45em;
+    text-align: justify;
+}
+p::first-letter
+{
+    font-size: 140%;
+    font-weight: bold;
+    color: #b5501d;
 }
 
-#contenedor-proyectos 
+/*Pongo los logos de programas manejados por mi persona*/
+#img-bienvenida
 {
-    /*display: flex;*/
-    /*height: 75vh;*/
-    /*flex-wrap: wrap;
-    justify-content: center;*/
+    display: inline-flex;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+/*Otro selector de TIPO aplicar estilo al encabezado*/
+
+header
+/*Configuro la barra de navegación*/
+{
+
+    display: flex;
+    font-size: 2dvh;
+    /*configuro el margen de manera que parezca una pestaña un poco a la izquierda y dejando un espacio grande hacia la derecha*/
+    margin: 2dvh 25dvw 0 5dvw;
+    padding: 0%;
+    justify-content: start; /*Alinea los elementos al inicio del contenedor en el eje horizontal o principal*/
+    align-items:center; /*Alinea los elementos al inicio del contenedor en el eje vertical o perpendicular*/
+}
+nav
+{
+    padding: 0%;
+    
 }
 
 /*Selector descendiente*/
 nav ul
 {
+    /*Le quito el remarcado de enlace*/
     list-style: none;
+    display: flex;
+    /*quito el espacio para que estén lado a lado pegados*/
+    margin: 0;
+    padding: 0;
+    flex-wrap:wrap-reverse; /* Hago que los elementos se envuelvan a la siguiente línea si no caben en una sola fila */
+    
 }
 nav ul li
 {
-    display: inline-block;
-    margin: 0 20px;
+    display: inline;
+    margin: 0 5px 0 0;
 }
 /*Selector de los enlaces (a) dentro del nav*/
 nav ul li a
 {
+    display: inline-block; /* Permite dar forma de caja al enlace */    
+ 
     text-decoration: none;
-    color: #f0f0f0;
-    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace; /* Fuente de programador obligatoria aquí */
+    font-weight:bolder;
+
+    /*Hago que parezcan pestañas por presionar*/
+    background-color: #cccccc;    
+    color:#121212;
+
+    /*Hago que todos los elementos tengan una altura estable y no esten pegados a los marcos superior e inferior*/
+    padding: 10px 20px;
+    margin-top: 5px;
+
+    /* Redondeamos solo a los bordes izquierdo y derecho*/
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+    /*pondré un hover para que cambien de imagen al pasar encima el mouse*/
+    transition: all 0.3s ease; /* Suaviza el cambio de color al pasar el mouse */
+}
+nav ul li a:hover 
+{
+    /*hago que cambie de fondo y color de letra al pasar el mouse por encima*/
+    background-color: #ec6726;
+    color: #ffffff;
+    border: #333333 1px solid;
+    border-top: #333333 2px solid;
+}
+
+nav ul li a.activo 
+{
+    /*uso la clase activo para marcar la ventana que se encuentra abierta, en este caso el HOME o INICIO, para que se vea diferente a las demás pestañas y el usuario sepa en qué sección se encuentra.
+    Selecciono solamente el elemento de la clase activo de la lista de ventanas mostradas*/
+    background-color: #1e1e1e; 
+    color: #cccccc;
+    
+    /*Configuro el borde de la ventana activa para que parezca parte del cuadro principal*/
+    border-top: #333333 1px solid; 
+    border-left: #333333 1px solid;
+    border-right: #333333 1px solid;
+    /*Le aumento un pixel más abajo para solaparse encima del borde de la ventana grande de manera que parezca parte de la ventana misma*/
+    border-bottom: 2px solid #1e1e1e; 
+    /*Hago que su margen inferior sea negativo para solaparse con el borde de la ventana principal*/
+    margin-bottom: -1px; 
+    /*aumento el padding inferior para compensar el borde inferior*/
+    padding-bottom: 11px; 
 }
 
 /*Selector de CLASE selecciona cualquier elemento que tenga la palabra class="proyecto-card"*/
@@ -90,35 +208,116 @@ footer
     align-items: center;
 }
 
-@media screen and (max-width: 600px)
+@media screen and (max-width: 420px)
 {
-    nav ul  li
+    
+    #bienvenida
+    {
+        font-size: 3dvh;
+
+    }
+    header
+    {
+        margin: 2dvh 10dvw 0 0;
+        align-items: center;
+    }
+
+    nav
+    {
+        width: 100%;
+    }
+    nav ul 
+    {
+        flex-direction:column-reverse;
+        flex-wrap: wrap-reverse;
+        width: 101.6%;
+        align-items: start;
+        padding-left: 0%;
+        padding-right: 0%;
+        margin-left: 3dvh;
+        margin-right: 0;
+    }
+    nav ul li 
+    {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0.5dvw 0 0 0;
+        margin-right: 0;
+        
+    }   
+    nav ul li a 
     {
         display: block;
-        margin: 10px 0;
+        width: 100%; /* Forzamos a que todas tengan el mismo ancho */
+        box-sizing: border-box; /* Evita que el padding rompa el tamaño */
+        text-align: center; /* Centramos el texto */
+        font-size: 0.85em; /* Comprimimos un poco el texto para que entre bien */
+        border-top-left-radius: 8px; /* Redondeamos todas las esquinas para modo botón */
+        border-top-right-radius: 8px;
     }
+
+    nav ul li a:hover 
+{
+    /*hago que cambie de fondo y color de letra al pasar el mouse por encima*/
+    background-color: #ec6726;
+    color: #ffffff;
+    border: #333333 1px solid;
+    border-top: #333333 2px solid;
+}
+
+nav ul li a.activo 
+{
+    /*uso la clase activo para marcar la ventana que se encuentra abierta, en este caso el HOME o INICIO, para que se vea diferente a las demás pestañas y el usuario sepa en qué sección se encuentra.
+    Selecciono solamente el elemento de la clase activo de la lista de ventanas mostradas*/
+    background-color: #1e1e1e; 
+    color: #cccccc;
+    
+    /*Configuro el borde de la ventana activa para que parezca parte del cuadro principal*/
+    border-top: #333333 1px solid; 
+    border-left: #333333 1px solid;
+    border-right: #333333 1px solid;
+    /*Le aumento un pixel más abajo para solaparse encima del borde de la ventana grande de manera que parezca parte de la ventana misma*/
+    border-bottom: 2px solid #1e1e1e; 
+    /*Hago que su margen inferior sea negativo para solaparse con el borde de la ventana principal*/
+    margin-bottom: -1px; 
+    /*aumento el padding inferior para compensar el borde inferior*/
+    padding-bottom: 11px; 
+}
 
     .proyecto-card
     {
         width: 100%;
     }
 
-    header nav ul li 
-    {
-        display:grid;
-        padding-left: 40vw;
-        padding-right: 40vw;
-        text-align: center;
-        border-top: 3px solid #fff;
-    }
+   
 
     #contenedor-proyectos
     {
         background-color: beige;
     }
 }
-@media screen and (min-width:601px) and (max-width: 900px)
+@media screen and (min-width: 421px) and (max-width: 900px)
+{
+     header
     {
+        margin: 2dvh 10dvw 0 5dvw;
+    }
+        #bienvenida
+    {
+        font-size: 3dvh;
+
+    }
+    nav ul 
+    {
+        margin-left: 0;
+    }
+    nav ul li 
+    {
+        padding-left: 0;
+        padding-right: 0;
+        
+    }   
         #contenedor-proyectos
         {
             justify-content: space-around;
@@ -136,11 +335,7 @@ footer
             font-size: 1.5em;
         }
         
-        header nav ul li 
-        {
-            padding-left: 30vw;
-            padding-right: 30vw;
-        }
+
     }
 
     @media (prefers-color-scheme: dark) 
