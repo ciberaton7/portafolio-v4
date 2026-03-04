@@ -78,6 +78,17 @@ p::first-letter
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    
+}
+#img-bienvenida img
+{
+    transition: transform 1s ease, box-shadow 1s ease; /* transición definida aquí */
+}
+#img-bienvenida img:hover
+{
+    /*box-shadow: 4px 4px 8px rgba(176, 174, 174, 0.2), -4px -4px 8px rgba(176, 174, 174, 0.2); */
+    filter: drop-shadow(0 0 10px rgba(176, 174, 174, 0.8)); /* brillo amarillo */
+    transform: scale(1.25); 
 }
 /*Otro selector de TIPO aplicar estilo al encabezado*/
 
@@ -171,12 +182,15 @@ nav ul li a.activo
 .proyecto-card
 {
     border: 1px solid #ddd;
-    padding: 20px;
+    
     margin: 20px;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: #333333;;
     box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
     width: 300px;
+    padding: 2% 0.5% 3% 0.5%;
+    box-shadow: 4px 4px 8px rgba(176, 174, 174, 0.2),-4px -4px 8px rgba(176, 174, 174, 0.2);
+
 
     /*El background-color es el color de fondo del elemento, en este caso el card del proyecto
     width: 300px;
@@ -184,6 +198,10 @@ nav ul li a.activo
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
 }
 /*Selector de ID (#) seleccionar un elemento en específico*/
+#proyectos
+{
+    text-align: center;
+}
 #contenedor-proyectos
 {
     display: flex;
@@ -191,11 +209,25 @@ nav ul li a.activo
     /*permite reacomodar en filas cuando no puede entrar en el ancho de la pantalla*/
     justify-content: center;
     align-items: center;
-    background-color: #bbc9ed;
+    /*background-color: #bbc9ed;*/
     gap: 20px;
     padding: 20px;
-}
 
+    /*Le pongo un fondo de color parecido al tema oscuro de visual studio*/
+    background-color: #1e1e1e;
+    /*Le pongo margenes para que parezca una ventana abierta*/
+    margin: 0 2.23dvw 0 2.23dvw;
+    /*Le pongo un tamaño de letra grande para que se base en función al tamaño de la ventana*/
+    font-size: 3dvh;
+    /*hago que mi texto no este pegado a los bordes*/
+    padding: 5vw 8vw 5vw 8vw;
+    /*hago que mi bienvenida utilice una gran parte de la ventana*/
+    min-height: 92vh;
+
+    /*alineo mi texto al centro y le pongo bordes*/
+    text-align: center;
+    border: #333333 1px solid;
+}
 
 /*Footer*/
 footer
@@ -308,6 +340,14 @@ nav ul li a.activo
         font-size: 3dvh;
 
     }
+
+    #img-bienvenida img
+    {
+       transform: scale(0.75);
+       flex-wrap: wrap;
+
+    }
+
     nav ul 
     {
         margin-left: 0;
@@ -318,22 +358,22 @@ nav ul li a.activo
         padding-right: 0;
         
     }   
-        #contenedor-proyectos
-        {
-            justify-content: space-around;
-            gap: 10px;
-            background-color: #66b8ec;
-            
-        }
+    #contenedor-proyectos
+    {
+        justify-content: space-around;
+        gap: 10px;
+        background-color: #66b8ec;
+        
+    }
 
-        .proyecto-card
-        {
-            width: 45%;
-        }
-        h1
-        {
-            font-size: 1.5em;
-        }
+    .proyecto-card
+    {
+        width: 45%;
+    }
+    h1
+    {
+        font-size: 1.5em;
+    }
         
 
     }
