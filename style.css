@@ -10,6 +10,7 @@ body{
     line-height: 1.6;
     background-color: #252525;
     color: #dddddd;
+    /*color: #dddddd;background-color: #1e1e1e;border: #333333 1px solid;*/
 }
 #bienvenida
 {
@@ -87,7 +88,7 @@ p::first-letter
 #img-bienvenida img:hover
 {
     /*box-shadow: 4px 4px 8px rgba(176, 174, 174, 0.2), -4px -4px 8px rgba(176, 174, 174, 0.2); */
-    filter: drop-shadow(0 0 10px rgba(176, 174, 174, 0.8)); /* brillo amarillo */
+    filter: drop-shadow(0 0 10px rgba(181, 179, 179, 0.8)); /* brillo amarillo */
     transform: scale(1.25); 
 }
 /*Otro selector de TIPO aplicar estilo al encabezado*/
@@ -190,12 +191,21 @@ nav ul li a.activo
     width: 300px;
     padding: 2% 0.5% 3% 0.5%;
     box-shadow: 4px 4px 8px rgba(176, 174, 174, 0.2),-4px -4px 8px rgba(176, 174, 174, 0.2);
-
+    
 
     /*El background-color es el color de fondo del elemento, en este caso el card del proyecto
     width: 300px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
+}
+
+.proyecto-card a {
+    text-decoration: none;
+    color: #dddddd; /* color normal */
+}
+
+.proyecto-card a:visited {
+    color: #dddddd; /* color cuando ya fue visitado */
 }
 /*Selector de ID (#) seleccionar un elemento en específico*/
 #proyectos
@@ -227,6 +237,7 @@ nav ul li a.activo
     /*alineo mi texto al centro y le pongo bordes*/
     text-align: center;
     border: #333333 1px solid;
+    
 }
 
 /*Footer*/
