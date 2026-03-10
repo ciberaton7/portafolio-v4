@@ -416,3 +416,34 @@ nav ul li a.activo
         }
         
     }
+
+    /*ACÁ UTILIZARÉ LOS MODOS ALTERNATIVOS PARA MI PÁGINA QUE MÁS ADELANTE CAMBIARÉ EN EL JS (según internet son la separación de responsabilidades)*/
+    /* =========================================
+   TEMA ALTERNATIVO (Activado por JS)
+   ========================================= */
+body.modo-alternativo {
+    background-color: #333333;
+    color: #dddddd;
+}
+
+/* Si el body es alternativo, cambia la caja de bienvenida */
+body.modo-alternativo #texto-bienvenida {
+    background-color: #d8c5a6;
+    color: #252525; 
+}
+
+/* Si el body es alternativo, cambia las tarjetas de proyectos */
+body.modo-alternativo .proyecto-card {
+    background-color: #dddddd;
+}
+
+body.modo-alternativo .proyecto-card h3,
+body.modo-alternativo .proyecto-card p,
+body.modo-alternativo .proyecto-card a {
+    color: #333333;
+}
+
+/* El título de mis proyectos */
+body.modo-alternativo #proyectos h2 {
+    color: #dddddd;
+}

@@ -237,8 +237,8 @@ borde de alrededor de las etiquetas mas grandes contenedoras border: #333333 1px
 color del brillo de alrededor normal #b0aeae33*/
     //modularidad
     //controlador de interfaz
-
-    const UI ={
+//TODO ESTO ES LO QUE HICIMOS EN CLASE
+    /*const UI ={
         cuerpo : document.body,
         cajaBienvenida : document.getElementById("texto-bienvenida"),
         contProyectos : document.getElementById("contenedor-proyectos"),
@@ -276,6 +276,33 @@ color del brillo de alrededor normal #b0aeae33*/
         //botonProyectos.addEventListener("click",() => UI.irAseccion("proyectos"));
 
 
+        */
+        //ACÁ HICE LA MODIFICACIÓN SEGÚN LO PEDIDO EN LA TAREA DE LA PLATAFORMA
+        // ==========================================
+// CONTROLADOR DE INTERFAZ (UI) MODULARIZADO
+// ==========================================
+    const UI = {
+        cuerpo: document.body,
+
+        alternarColor: function() {
+            // classList.toggle hace la magia: si la clase está, la quita. Si no está, la pone.
+            this.cuerpo.classList.toggle("modo-alternativo");
+            
+            // Guardamos la preferencia en el LocalStorage
+            if (this.cuerpo.classList.contains("modo-alternativo")) {
+                localStorage.setItem("temaPreferido", "alternativo");
+            } else {
+                localStorage.setItem("temaPreferido", "normal");
+            }
+        },
+        
+        irAseccion: function(id){
+            document.getElementById(id).scrollIntoView({behavior: "smooth"});
+        }
+    };
+
+    botonTema.addEventListener("click", () => UI.alternarColor());
+    botonProyectos.addEventListener("click", () => UI.irAseccion("proyectos"));
         /*
         // ejemplo de carga de portafolio  con fetch() y async/await
 cargarProyectos();
@@ -298,8 +325,8 @@ const UI = {
 botonTema.addEventListener("click", () => UI.alternarColor());
         */
 
-//local storage para guardar preferencias del usuario
-function guardartema(color){
+//local storage para guardar preferencias del usuario ESTO ES LO QUE REEMPLACÉ INGE PARA HACER LA TAREA TOMANDO EN CUENTA EL CAMBIO DEL MODO OSCURO Y NORMAL
+/*function guardartema(color){
     localStorage.setItem("temaPreferido", color);
 }
 
@@ -307,6 +334,17 @@ const temaGuardado = localStorage.getItem("temaPreferido");
 if(temaGuardado){
     cuerpoPagina.style.backgroundColor = temaGuardado;
     cuerpoPagina.style.color = temaGuardado === "black" ? "white" : "black";
+}*/
+
+// 
+// RECUPERAR PREFERENCIAS AL CARGAR LA PÁGINA
+// 
+// Al recargar la página, verificamos si el usuario había dejado el tema alternativo
+const temaGuardado = localStorage.getItem("temaPreferido");
+
+if (temaGuardado === "alternativo") {
+    // Si era alternativo, le ponemos la clase directamente al body
+    document.body.classList.add("modo-alternativo");
 }
 
 //delegacion de eventos: un solo escuchador para todo el contenedor de proyectos
@@ -316,6 +354,6 @@ contenedor.addEventListener("click", function(evento) {
     const tarjeta = evento.target.closest(".proyecto-card");
     if(tarjeta){
         alert("UTILIZANDO DELEGACIÓN DE EVENTOS - Haz hecho clic en un proyecto: " + tarjeta.querySelector("h3").innerText);
-
+ 
     }
 });
