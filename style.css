@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 /*acá tenemos un selector de TIPO (etiqueta)
 en este caso afectará a todo el cuerpo de la página*/
 body{
@@ -191,21 +194,12 @@ nav ul li a.activo
     width: 300px;
     padding: 2% 0.5% 3% 0.5%;
     box-shadow: 4px 4px 8px rgba(176, 174, 174, 0.2),-4px -4px 8px rgba(176, 174, 174, 0.2);
-    
+
 
     /*El background-color es el color de fondo del elemento, en este caso el card del proyecto
     width: 300px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
-}
-
-.proyecto-card a {
-    text-decoration: none;
-    color: #dddddd; /* color normal */
-}
-
-.proyecto-card a:visited {
-    color: #dddddd; /* color cuando ya fue visitado */
 }
 /*Selector de ID (#) seleccionar un elemento en específico*/
 #proyectos
@@ -237,7 +231,266 @@ nav ul li a.activo
     /*alineo mi texto al centro y le pongo bordes*/
     text-align: center;
     border: #333333 1px solid;
+}
+
+/*Fortalezas*/
+
+/*Selector de CLASE selecciona cualquier elemento que tenga la palabra class="proyecto-card"*/
+.fortaleza-card
+{
+    border: 1px solid #ddd;
     
+    margin: 20px;
+    border-radius: 8px;
+    background-color: #333333;;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    width: 300px;
+    padding: 2% 0.5% 3% 0.5%;
+    box-shadow: 4px 4px 8px rgba(176, 174, 174, 0.2),-4px -4px 8px rgba(176, 174, 174, 0.2);
+    cursor: pointer;
+
+    /*El background-color es el color de fondo del elemento, en este caso el card del proyecto
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
+}
+.fortaleza-card p /*Oculto el contenido cuando no esta el mouse encima*/
+{
+    /*display: none;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;*/
+    justify-content: center;
+    color: #1e1e1e;
+    opacity: 0;
+    max-height: 0;          /* colapsado */
+    overflow: hidden;       /* oculta el contenido */
+    transition: opacity 0.3s ease, max-height 0.5s ease;
+}
+/*Muestro el contenido cuando le paso el mouse encima*/
+.fortaleza-card:hover p
+{
+    opacity: 1;
+    max-height: 200px; 
+    margin: 5%;
+    padding: 0;
+    border-radius: 50px 10px;
+}
+.fortaleza-card:hover p::first-letter
+{
+    color: #1e1e1e;
+}
+.fortaleza-card p::first-letter
+{
+    color: #1e1e1e;
+}
+/* el color del contenedor de fortalezas seleccionado cambia de color */
+.fortaleza-card:hover {
+  background-color: #2e626e;/*#204047;*/
+}
+.fortaleza-card p:hover /*el texto de la tarjeta cambia cuando le pongo encima el mouse*/
+{
+    background-color: #cccccc
+}
+
+/*Selector de ID (#) seleccionar un elemento en específico*/
+#fortalezas
+{
+    text-align: center;
+}
+#contenedor-fortalezas
+{
+    display: flex;
+    flex-wrap: wrap;
+    /*permite reacomodar en filas cuando no puede entrar en el ancho de la pantalla*/
+    justify-content: center;
+    align-items: center;
+    /*background-color: #bbc9ed;*/
+    gap: 20px;
+    padding: 20px;
+
+    /*Le pongo un fondo de color parecido al tema oscuro de visual studio*/
+    background-color: #1e1e1e;
+    /*Le pongo margenes para que parezca una ventana abierta*/
+    margin: 0 2.23dvw 0 2.23dvw;
+    /*Le pongo un tamaño de letra grande para que se base en función al tamaño de la ventana*/
+    font-size: 3dvh;
+    /*hago que mi texto no este pegado a los bordes*/
+    padding: 5vw 8vw 5vw 8vw;
+    /*hago que mi bienvenida utilice una gran parte de la ventana*/
+    min-height: 92vh;
+
+    /*alineo mi texto al centro y le pongo bordes*/
+    text-align: center;
+    border: #333333 1px solid;
+}
+
+
+/*experiencias*/
+#experiencia 
+{
+    padding: 50px;
+    /*permite reacomodar en filas cuando no puede entrar en el ancho de la pantalla*/
+    justify-content: center;
+    align-items: center;
+    /*background-color: #bbc9ed;*/
+    gap: 20px;
+    padding: 20px;
+
+    /*Le pongo un fondo de color parecido al tema oscuro de visual studio*/
+    background-color: #1e1e1e;
+    /*Le pongo margenes para que parezca una ventana abierta*/
+    margin: 0 2.23dvw 0 2.23dvw;
+    /*Le pongo un tamaño de letra grande para que se base en función al tamaño de la ventana*/
+    font-size: 3dvh;
+    /*hago que mi texto no este pegado a los bordes*/
+    padding: 5vw 8vw 5vw 8vw;
+    /*hago que mi bienvenida utilice una gran parte de la ventana*/
+    min-height: 92vh;
+
+    /*alineo mi texto al centro y le pongo bordes*/
+    text-align: center;
+    border: #333333 1px solid;
+}
+
+.experiencia-container 
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  text-align: center;
+  
+}
+#experiencia h2
+{
+    margin-bottom: 5dvh;
+}
+
+.experiencia-card 
+{
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(176, 174, 174, 0.2),-4px -4px 8px rgba(176, 174, 174, 0.2);
+  text-align: center;
+}
+
+.experiencia-card img 
+{
+    width:auto;
+    height: 20dvh;
+    display: inline-block;
+    transition: transform 0.4s ease;
+    margin: 5%;
+}
+
+.experiencia-card:hover img {
+  transform: scale(1.1); /* zoom suave */
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(46, 98, 110, 0.9); /* color semitransparente */
+  color: #fff;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.experiencia-card:hover .card-content {
+  transform: translateY(0); /* se desliza hacia arriba */
+}
+
+.card-content h3 {
+  margin: 0 0 10px;
+}
+
+.card-content p {
+  margin: 0;
+}
+/*CONTACTOOOOOOOS*/
+.contacto {
+  padding: 50px;
+  background-color: #1e1e1e;
+  text-align: center;
+  padding: 50px;
+    /*permite reacomodar en filas cuando no puede entrar en el ancho de la pantalla*/
+    justify-content: center;
+    align-items: center;
+    /*background-color: #bbc9ed;*/
+    gap: 20px;
+    padding: 20px;
+
+    /*Le pongo un fondo de color parecido al tema oscuro de visual studio*/
+    background-color: #1e1e1e;
+    /*Le pongo margenes para que parezca una ventana abierta*/
+    margin: 0 2.23dvw 0 2.23dvw;
+    /*Le pongo un tamaño de letra grande para que se base en función al tamaño de la ventana*/
+    font-size: 3dvh;
+    /*hago que mi texto no este pegado a los bordes*/
+    padding: 5vw 8vw 5vw 8vw;
+    /*hago que mi bienvenida utilice una gran parte de la ventana*/
+    min-height: 92vh;
+
+    /*alineo mi texto al centro y le pongo bordes*/
+    text-align: center;
+    border: #333333 1px solid;
+}
+#contacto h2
+{
+    margin-bottom: 5dvh;
+}
+
+.contacto-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contacto-card {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.contacto-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contacto-card:hover {
+  transform: scale(1.1); /* efecto zoom al pasar el mouse */
+}
+
+.contacto-img-text
+{
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10dvh;
+}
+.contacto-img-text span
+{  
+    float: right;
+    justify-content: center;
+    text-align: justify;
+    padding-left: 5dvw;
+    padding-right: 5dvw;
+}
+.contacto-img-text img
+{  
+    float: left;
 }
 
 /*Footer*/
